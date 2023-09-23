@@ -7,6 +7,13 @@ app.get("/", (req,res) => {
 })
 
 app.post("/", (req,res)=>{
+    console.log("post request Respons: " + req)
+    // const fname = req.body.fname;
+    // const lname = req.body.lname;
+    // const email = req.body.email;
+    // console.log("Your First Name: " + fname);
+    // console.log("Your Last Name: " + lname);
+    // console.log("Your Email Id: " + email);
     
 })
 
