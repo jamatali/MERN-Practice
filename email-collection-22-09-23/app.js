@@ -18,8 +18,7 @@ app.post("/", (req,res)=>{
     console.log("Your First Name: " + fname);
     console.log("Your Last Name: " + lname);
     console.log("Your Email Id: " + email);
-    res.send("ok");
-    
+    res.send(`You Have Entered First Name: ${fname}, Last Name: ${lname} and Email: ${email}`);
 })
 
 
