@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    padding: 0 5%;
+    background-color: aquamarine;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    width: 20%;
+    border: 2px dashed red;
+    border-radius: 10px;
+    padding: 0 10px 10px 10px;
+}
+.card h3{
+    text-align: center;
+    padding: 10px 0;
+}
+.form-card{
+    display: flex;
+    flex-direction: column;
+}
+.form-card button{
+    display: flex;
+    width: 30%;
+    align-self: center;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+.form-card input{
+    border-radius: 10px;
+    padding: 5px 10px;
+}
