@@ -9,7 +9,9 @@ app.use(express.static(__dirname + "/public"));
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
-
+app.post("/failuire", (req, res) => {
+  res.redirect("/");
+});
 app.post("/", (req, res) => {
   // console.log("post request Respons1: " + req.body.fname);
   // console.log("post request Respons2: " + req.body.lname);
@@ -36,9 +38,14 @@ app.post("/", (req, res) => {
   const url = "https://us21.api.mailchimp.com/3.0/lists/df3323f776";
   const options = {
     method: "post",
-    auth: "Jamat:ae002b99870f7f0752f9458fc1bb9127-us21",
+    auth: "Jamat:d85614dd02b2d5f41c92bf3e6cc828b0-us21p",
   };
   const request = https.request(url, options, (response) => {
+    if (response.statusCode === 200) {
+      res.sendFile(__dirname + "/success.html");
+    } else {
+      res.sendFile(__dirname + "/failuire.html");
+    }
     response.on("data", (data) => {
       const pData = JSON.parse(data);
       console.log(pData);
@@ -46,9 +53,9 @@ app.post("/", (req, res) => {
   });
   request.write(jsonData);
   request.end();
-  res.send(
-    `You Have Entered First Name: ${fname}, Last Name: ${lname} and Email: ${email} This is ${jsonData}`
-  );
+  // res.send(
+  //   `You Have Entered First Name: ${fname}, Last Name: ${lname} and Email: ${email} This is ${jsonData}`
+  // );
 });
 
 app.listen(port, () => {
@@ -56,7 +63,7 @@ app.listen(port, () => {
 });
 
 // API_KEY--MailChimp
-// ae002b99870f7f0752f9458fc1bb9127-us21
+// d85614dd02b2d5f41c92bf3e6cc828b0-us21
 
 // List Id
 // df3323f776
