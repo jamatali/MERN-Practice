@@ -58,7 +58,12 @@ app.post("/", (req, res) => {
   // );
 });
 
-app.listen(port, () => {
+// app.listen(port, () => {
+//   console.log(`Email Collection App is running on Port: ${port}`);
+// });
+// For Heruko Deployment
+// || (OR) will alow to run the app both on heruko and port:3000
+app.listen(process.env.PORT || port, () => {
   console.log(`Email Collection App is running on Port: ${port}`);
 });
 
